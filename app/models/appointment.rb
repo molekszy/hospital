@@ -4,5 +4,5 @@ class Appointment < ApplicationRecord
   belongs_to :doctor, class_name: 'Staff'
 
   scope :nurses, -> {where(occupation: 'nurse')}
-
+  scope :doctor, -> {where(occupation: 'doctor')}
 end
