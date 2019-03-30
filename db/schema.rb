@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_30_142042) do
+ActiveRecord::Schema.define(version: 2019_03_30_160209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,26 @@ ActiveRecord::Schema.define(version: 2019_03_30_142042) do
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
     t.index ["nurse_id"], name: "index_appointments_on_nurse_id"
     t.index ["reservation_id"], name: "index_appointments_on_reservation_id"
+  end
+
+  create_table "bill_items", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price", precision: 8, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bill_items_bills", id: false, force: :cascade do |t|
+    t.bigint "bill_id", null: false
+    t.bigint "bill_item_id", null: false
+    t.index ["bill_id", "bill_item_id"], name: "index_bill_items_bills_on_bill_id_and_bill_item_id"
+  end
+
+  create_table "bills", force: :cascade do |t|
+    t.bigint "appointment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["appointment_id"], name: "index_bills_on_appointment_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -61,6 +81,16 @@ ActiveRecord::Schema.define(version: 2019_03_30_142042) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "stuffs", force: :cascade do |t|
+    t.string "name"
+    t.string "surname"
+    t.string "pesel"
+    t.integer "type", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "appointments", "reservations"
+  add_foreign_key "bills", "appointments"
   add_foreign_key "reservations", "patients"
 end

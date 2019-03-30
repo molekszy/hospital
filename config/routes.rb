@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :bills
+  resources :bill_items
   get 'addresses/create'
   resources :appointments
   resources :reservations
