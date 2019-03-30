@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'addresses/create'
   resources :appointments
   resources :reservations
   resources :staffs
