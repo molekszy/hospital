@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_30_123523) do
+ActiveRecord::Schema.define(version: 2019_03_30_141013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses_tables", force: :cascade do |t|
+    t.string "addressable_type"
+    t.bigint "addressable_id"
+    t.index ["addressable_type", "addressable_id"], name: "index_addresses_tables_on_addressable_type_and_addressable_id"
+  end
 
   create_table "appointments", force: :cascade do |t|
     t.bigint "reservation_id"
