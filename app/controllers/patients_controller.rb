@@ -75,7 +75,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
-      params.require(:patient).permit(:name, :surname, :pesel, address_attributes: [:city, :street_name, :street_number, :postal_code, :id])
+      params.require(:patient).permit(:name, :surname, :pesel, :avatar, address_attributes: [:city, :street_name, :street_number, :postal_code, :id])
 
     end
 end

@@ -16,12 +16,16 @@
 </p>
 
 <p>
+  <%= image_tag url_for(@patient.avatar) %>
+</p>
+
+<p>
   <strong>City:</strong>
   <%= @patient.address.city %>
 </p>
 
 <p>
-  <strong>Postal Code:</strong>
+  <strong>Postal Code:</strong>r
   <%= @patient.address.postal_code%>
 </p>
 
