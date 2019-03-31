@@ -5,6 +5,12 @@
   <%= @bill.appointment %>
 </p>
 
+<p>
+  <strong>Paid Date:</strong>
+  <%= @bill.paid_date %>
+</p>
+
+
 <p>Bill Items:
 <ul>
   <% if @bill.bill_items.each do |bill_items| %>
