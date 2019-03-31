@@ -57,10 +57,15 @@ class PatientsController < ApplicationController
   def destroy
     @patient.destroy
     respond_to do |format|
+    if @patient.destroyed?
       format.html { redirect_to patients_url, notice: 'Patient was successfully destroyed.' }
       format.json { head :no_content }
+    else
+      @patients = Patient.all
+      format.html { redirect_to patients_url, notice: patient.errors.full_messages.join() }
     end
   end
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
