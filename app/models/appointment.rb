@@ -4,7 +4,7 @@ class Appointment < ApplicationRecord
   belongs_to :doctor, class_name: 'Staff'
 
   def to_s
-    "#{reservation.patient.name_and_surname} - #{doctor.name_and_surname}"
+    "#{reservation.patient.name_and_surname} - #{doctor.display_staff}"
   end
 
 

@@ -1,6 +1,6 @@
 class Reservation < ApplicationRecord
   belongs_to :patient
-  has_one :appointment
+  has_one :appointment, dependent: :destroy
 
   validates_presence_of :reservation_time
 
