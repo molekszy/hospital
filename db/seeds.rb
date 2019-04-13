@@ -1,22 +1,30 @@
 Address.create!([
-  {addressable_type: "Patient", addressable_id: 3, city: "Poznań", street_name: "Malwowa", street_number: "12", postal_code: "60-121"},
-  {addressable_type: "Staff", addressable_id: 6, city: "Poznań", street_name: "Malwowa", street_number: "12", postal_code: "60-121"}
+  {addressable_type: "Staff", addressable_id: 6, city: "Poznań", street_name: "Malwowa", street_number: "12", postal_code: "60-121"},
+  {addressable_type: "Patient", addressable_id: 5, city: "Poznań", street_name: "Malwowa", street_number: "12", postal_code: "60-121"},
+  {addressable_type: "Patient", addressable_id: 8, city: "Poznań", street_name: "Malwowa", street_number: "12", postal_code: "60-121"},
+  {addressable_type: "Patient", addressable_id: 9, city: "Poznań", street_name: "Malwowa", street_number: "12", postal_code: "60-121"}
+])
+Appointment.create!([
+  {reservation_id: 7, nurse_id: 3, doctor_id: 2}
+])
+Bill.create!([
+  {appointment_id: 6, is_paid: true, paid_date: "2019-04-13 08:01:05"}
 ])
 BillItem.create!([
   {name: "przepuklina", price: "100.0"},
   {name: "masaż serca", price: "212.0"},
   {name: "przeszczep twarzy", price: "1000.0"},
   {name: "woda w kolanie", price: "90.0"},
-  {name: "cukier w kostkach", price: "1000.0"}
+  {name: "cukier w kostkach", price: "1000.0"},
+  {name: "ryba w brzuchu", price: "12.0"}
 ])
 Patient.create!([
-  {name: "Kamil", surname: "Codesensei", pesel: "91022928288"},
-  {name: "Aleksander", surname: "Doba", pesel: "91021222112"},
-  {name: "Aleksander", surname: "Doba", pesel: "91022928288"}
+  {name: "Aleksander", surname: "Doba", pesel: "81111109298"},
+  {name: "Aleksander Doba", surname: "Doba", pesel: "91022928288"},
+  {name: "Aleksander Doba", surname: "Doba", pesel: "91022928288"}
 ])
 Reservation.create!([
-  {reservation_time: "2019-03-30 11:55:00", patient_id: 1},
-  {reservation_time: "2019-07-13 12:07:00", patient_id: 1}
+  {reservation_time: "2019-04-13 14:00:00", patient_id: 5}
 ])
 Staff.create!([
   {name: "Aleksander", surname: "Bober", pesel: "65022199922", occupation: "doctor"},
