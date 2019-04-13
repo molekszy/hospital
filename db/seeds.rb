@@ -1,9 +1,3 @@
-Address.create!([
-  {addressable_type: "Staff", addressable_id: 6, city: "Poznań", street_name: "Malwowa", street_number: "12", postal_code: "60-121"},
-  {addressable_type: "Patient", addressable_id: 5, city: "Poznań", street_name: "Malwowa", street_number: "12", postal_code: "60-121"},
-  {addressable_type: "Patient", addressable_id: 8, city: "Poznań", street_name: "Malwowa", street_number: "12", postal_code: "60-121"},
-  {addressable_type: "Patient", addressable_id: 9, city: "Poznań", street_name: "Malwowa", street_number: "12", postal_code: "60-121"}
-])
 Appointment.create!([
   {reservation_id: 7, nurse_id: 3, doctor_id: 2}
 ])
