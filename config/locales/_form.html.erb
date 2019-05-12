@@ -1,0 +1,27 @@
+<%= form_for([@film, @film.ratings.build]) do |f| %>
+<% if @rating.errors.any? %>
+<div id="error_explanation">
+  <h2> <%= pluralize(@rating.errors.count, "error") %> prohibited this rating from being saved: </h2>
+    <ul>
+    <% @rating.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+    </ul>
+    </div>
+  <% end %>
+<p>
+  <%= f.label :commenter %><br>
+  <%= f.text_field :commenter %>
+  </p>
+  <p>
+  <%= f.label :comment %><br>
+  <%= f.text_area :comment %>
+  </p>
+  <p>
+  <%= f.label :value %><br>
+  <%= f.number_field :value %>
+  </p>
+  <p>
+  <%= f.submit %>
+  </p>
+<% end %>
